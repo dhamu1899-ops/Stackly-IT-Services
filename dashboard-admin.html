@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Console · Stackly</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="dash-body" data-page="admin">
+
+<div class="dash" id="dash">
+  <div class="dash-scrim" aria-hidden="true"></div>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="dash-side">
+    <a class="dash-brand" href="index.html">
+      <span class="logo-chip"><img src="assets/img/logo.svg" alt=""></span>
+      <b>Stackly</b>
+    </a>
+
+    <nav class="dash-menu" aria-label="Admin menu">
+      <button class="dash-item is-active" type="button" data-panel="overview" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>
+        <span>Dashboard</span>
+      </button>
+      <button class="dash-item" type="button" data-panel="users">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-1.6a4 4 0 0 0-4-4H6.5a4 4 0 0 0-4 4V20"/><circle cx="9.25" cy="7.5" r="3.6"/><path d="M21.5 20v-1.6a4 4 0 0 0-3-3.85"/><path d="M16.2 4.15a3.6 3.6 0 0 1 0 6.7"/></svg>
+        <span>Manage Users</span>
+      </button>
+      <button class="dash-item" type="button" data-panel="services">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><path d="M3 12.5h18"/></svg>
+        <span>Manage Services</span>
+      </button>
+      <button class="dash-item" type="button" data-panel="enquiries">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.6 6.6 12 13l8.4-6.4"/></svg>
+        <span>Enquiries</span>
+      </button>
+      <button class="dash-item" type="button" data-panel="reports">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5h17"/><path d="M6 17.5v-6"/><path d="M11 17.5V6.5"/><path d="M16 17.5v-9"/><path d="M21 17.5v-4"/></svg>
+        <span>Reports</span>
+      </button>
+      <button class="dash-item" type="button" data-panel="settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.1 14.6a1.6 1.6 0 0 0 .32 1.77l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.6 1.6 0 0 0-1.77-.32 1.6 1.6 0 0 0-.97 1.47V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1.05-1.46 1.6 1.6 0 0 0-1.77.32l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.6 1.6 0 0 0 .32-1.77 1.6 1.6 0 0 0-1.47-.97H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.46-1.05 1.6 1.6 0 0 0-.32-1.77l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.6 1.6 0 0 0 1.77.32H9a1.6 1.6 0 0 0 .97-1.47V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 .97 1.47 1.6 1.6 0 0 0 1.77-.32l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.6 1.6 0 0 0-.32 1.77V9a1.6 1.6 0 0 0 1.47.97H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.46.97z"/></svg>
+        <span>Settings</span>
+      </button>
+
+      <p class="dash-group">Website</p>
+      <a class="dash-item" href="index.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7"/><path d="M5.5 9.8V19A1.5 1.5 0 0 0 7 20.5h10A1.5 1.5 0 0 0 18.5 19V9.8"/><path d="M9.5 20.5v-6h5v6"/></svg>
+        <span>Home</span>
+      </a>
+      <a class="dash-item" href="about.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 11.2v5"/><path d="M12 7.9h.01"/></svg>
+        <span>About</span>
+      </a>
+      <a class="dash-item" href="services.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.8"/><path d="M13.5 17h7"/><path d="M17 13.5v7"/></svg>
+        <span>Services</span>
+      </a>
+      <a class="dash-item" href="team.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.3"/><path d="M3.5 19.5v-.6A5 5 0 0 1 8.5 14h1a5 5 0 0 1 5 5v.6"/><path d="M15.5 5.2a3.3 3.3 0 0 1 0 6.4"/><path d="M17.6 14.2a5 5 0 0 1 2.9 4.5v.8"/></svg>
+        <span>Team</span>
+      </a>
+      <a class="dash-item" href="blog.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h11.5A2.5 2.5 0 0 1 19 7v12.5H7.5A2.5 2.5 0 0 1 5 17z"/><path d="M8.5 8.5h7"/><path d="M8.5 12h7"/><path d="M8.5 15.5h4"/></svg>
+        <span>Blog</span>
+      </a>
+      <a class="dash-item" href="contact.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.2"/><path d="m4.4 6.6 7.6 5.7 7.6-5.7"/></svg>
+        <span>Contact</span>
+      </a>
+    </nav>
+
+    <div class="dash-who">
+      <span class="av js-avatar" aria-hidden="true">A</span>
+      <span class="who-txt">
+        <b class="js-name">Admin</b>
+        <small class="js-email">admin@stackly.in</small>
+      </span>
+    </div>
+
+    <div class="dash-side-foot">
+      <a class="dash-item" href="index.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4.5H19a1.5 1.5 0 0 1 1.5 1.5v4.5"/><path d="M19.5 5 11 13.5"/><path d="M18 13.6V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19V7.5A1.5 1.5 0 0 1 5 6h5.4"/></svg>
+        <span>View site</span>
+      </a>
+      <button class="dash-item" type="button" id="logout-btn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 20.5H6A2 2 0 0 1 4 18.5v-13A2 2 0 0 1 6 3.5h3.5"/><path d="m15.5 16.5 4.5-4.5-4.5-4.5"/><path d="M20 12H9.5"/></svg>
+        <span>Log out</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="dash-main">
+    <header class="dash-top">
+      <button class="dash-burger" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+      <h1 class="dash-title" id="dash-title">Dashboard</h1>
+      <div class="dash-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>
+        <input type="search" id="dash-search" placeholder="Search rows…" aria-label="Search table rows" data-row-filter="page">
+      </div>
+      <a class="dash-quote" href="contact.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.6a8.4 8.4 0 0 1-9 8.4 9.3 9.3 0 0 1-3.6-.7L3 21l1.9-5.1A8.2 8.2 0 0 1 4 11.6 8.4 8.4 0 0 1 12.5 3.2 8.4 8.4 0 0 1 21 11.6z"/></svg>
+        Get A Quote
+      </a>
+      <div class="dash-user">
+        <b class="dash-uname js-name">Admin</b>
+        <span class="dash-role js-role">Admin</span>
+        <span class="dash-avatar js-avatar" aria-hidden="true">A</span>
+      </div>
+    </header>
+
+    <main class="dash-content">
+
+      <!-- ========== DASHBOARD ========== -->
+      <section class="panel active" data-panel="overview" data-title="Dashboard">
+        <div class="panel-head">
+          <h2>Welcome back, <span class="js-name">Admin</span></h2>
+          <p>Live snapshot of Stackly — users, services, enquiries and revenue.</p>
+        </div>
+
+        <div class="stat-grid">
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-1.6a4 4 0 0 0-4-4H6.5a4 4 0 0 0-4 4V20"/><circle cx="9.25" cy="7.5" r="3.6"/><path d="M21.5 20v-1.6a4 4 0 0 0-3-3.85"/></svg></span>
+              <span class="stat-delta">+12.4%</span>
+            </div>
+            <p class="stat-val">1,248</p>
+            <p class="stat-lbl">Total Users</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><path d="M3 12.5h18"/></svg></span>
+              <span class="stat-delta">+1 new</span>
+            </div>
+            <p class="stat-val">6</p>
+            <p class="stat-lbl">Active Services</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.6 6.6 12 13l8.4-6.4"/></svg></span>
+              <span class="stat-delta">+8.2%</span>
+            </div>
+            <p class="stat-val">87</p>
+            <p class="stat-lbl">Open Enquiries</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h10"/><path d="M7 9h10"/><path d="M13.5 4.5c2.6 0 4.2 1.7 4.2 4.2 0 3.4-2.7 5.1-6.2 5.1H7.4l8.1 6.7"/></svg></span>
+              <span class="stat-delta">+18.9%</span>
+            </div>
+            <p class="stat-val">₹4.5L</p>
+            <p class="stat-lbl">Revenue (MTD)</p>
+          </article>
+        </div>
+
+        <div class="cols-2">
+          <div class="card chart-card">
+            <div class="card-head">
+              <h3>Revenue by month</h3>
+              <p class="card-note">Jan – Jun 2026</p>
+            </div>
+            <div class="chart" role="img" aria-label="Bar chart of monthly revenue, January to June, peaking in June">
+              <div class="chart-col"><span class="chart-bar" style="--h:42%"></span><span class="chart-lbl">Jan</span></div>
+              <div class="chart-col"><span class="chart-bar" style="--h:56%"></span><span class="chart-lbl">Feb</span></div>
+              <div class="chart-col"><span class="chart-bar" style="--h:48%"></span><span class="chart-lbl">Mar</span></div>
+              <div class="chart-col"><span class="chart-bar" style="--h:67%"></span><span class="chart-lbl">Apr</span></div>
+              <div class="chart-col"><span class="chart-bar" style="--h:60%"></span><span class="chart-lbl">May</span></div>
+              <div class="chart-col is-hi"><span class="chart-bar" style="--h:88%"></span><span class="chart-lbl">Jun</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h3>Recent enquiries</h3>
+              <button class="ui-btn" type="button" data-act="download" data-msg="Enquiries exported as CSV">Export</button>
+            </div>
+            <div class="table-wrap">
+              <table class="ui-table">
+                <thead>
+                  <tr><th>Name</th><th>Service</th><th>Date</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><b class="cell-strong">Kavya Ramesh</b></td><td>Cloud &amp; Hosting</td><td>06 Oct 2026</td><td><span class="tag tag-amber">Pending</span></td></tr>
+                  <tr><td><b class="cell-strong">Arun Textiles</b></td><td>Managed IT Services</td><td>05 Oct 2026</td><td><span class="tag tag-green">Replied</span></td></tr>
+                  <tr><td><b class="cell-strong">Nila Infotech</b></td><td>Cyber Security</td><td>04 Oct 2026</td><td><span class="tag tag-green">Replied</span></td></tr>
+                  <tr><td><b class="cell-strong">Miracle Foods</b></td><td>Web Development</td><td>03 Oct 2026</td><td><span class="tag tag-red">Urgent</span></td></tr>
+                  <tr><td><b class="cell-strong">Suresh Kumar</b></td><td>Network Security</td><td>02 Oct 2026</td><td><span class="tag tag-grey">Closed</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== MANAGE USERS ========== -->
+      <section class="panel" data-panel="users" data-title="Manage Users">
+        <div class="panel-head">
+          <h2>Manage Users</h2>
+          <p>Search, block or remove accounts across the platform.</p>
+        </div>
+
+        <div class="toolbar">
+          <div class="grow">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>
+            <input type="search" placeholder="Search by name or email…" aria-label="Search users" data-row-filter="panel">
+          </div>
+          <button class="btn btn-primary btn-sm" type="button" data-act="add-user-toggle" aria-expanded="false" aria-controls="add-user-form">Add user</button>
+        </div>
+
+        <form class="card dash-form two" id="add-user-form" data-act="add-user" hidden>
+          <div class="dash-field">
+            <label class="dash-label" for="nu-name">Full name</label>
+            <input class="dash-input" type="text" id="nu-name" name="nu-name" placeholder="e.g. Rahul Menon">
+          </div>
+          <div class="dash-field">
+            <label class="dash-label" for="nu-email">Email</label>
+            <input class="dash-input" type="email" id="nu-email" name="nu-email" placeholder="name@company.com">
+          </div>
+          <div class="dash-field full">
+            <span class="dash-label">Role</span>
+            <label class="auth-check"><input type="radio" name="nu-role" value="user" checked> User</label>
+            &nbsp;&nbsp;
+            <label class="auth-check"><input type="radio" name="nu-role" value="admin"> Admin</label>
+          </div>
+          <div class="dash-field full form-actions">
+            <button class="btn btn-primary btn-sm" type="submit">Add user</button>
+            <span class="dash-hint">New users can sign in immediately with their email.</span>
+          </div>
+        </form>
+
+        <div class="card space-top">
+          <div class="table-wrap">
+            <table class="ui-table wide" id="users-table">
+              <thead>
+                <tr>
+                  <th aria-label="Avatar"></th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-user>
+                  <td><span class="av av-soft" aria-hidden="true">PK</span></td>
+                  <td><b class="cell-strong">Pradeep Kumar</b></td>
+                  <td class="cell-mute">pradeep@novatech.in</td>
+                  <td><span class="tag tag-grey">User</span></td>
+                  <td><span class="tag tag-green js-status">Active</span></td>
+                  <td><span class="cell-actions">
+                    <button class="ui-act" type="button" data-act="block">Block</button>
+                    <button class="ui-act ui-act-danger" type="button" data-act="delete">Delete</button>
+                  </span></td>
+                </tr>
+                <tr data-user>
+                  <td><span class="av" aria-hidden="true">SA</span></td>
+                  <td><b class="cell-strong">Sneha Arjunan</b></td>
+                  <td class="cell-mute">sneha.arjunan@gmail.com</td>
+                  <td><span class="tag tag-indigo">Admin</span></td>
+                  <td><span class="tag tag-green js-status">Active</span></td>
+                  <td><span class="cell-actions">
+                    <button class="ui-act" type="button" data-act="block">Block</button>
+                    <button class="ui-act ui-act-danger" type="button" data-act="delete">Delete</button>
+                  </span></td>
+                </tr>
+                <tr data-user>
+                  <td><span class="av av-soft" aria-hidden="true">RM</span></td>
+                  <td><b class="cell-strong">Rahul Menon</b></td>
+                  <td class="cell-mute">rahul@skylinecorp.com</td>
+                  <td><span class="tag tag-grey">User</span></td>
+                  <td><span class="tag tag-red js-status">Blocked</span></td>
+                  <td><span class="cell-actions">
+                    <button class="ui-act" type="button" data-act="block">Unblock</button>
+                    <button class="ui-act ui-act-danger" type="button" data-act="delete">Delete</button>
+                  </span></td>
+                </tr>
+                <tr data-user>
+                  <td><span class="av av-soft" aria-hidden="true">FA</span></td>
+                  <td><b class="cell-strong">Fathima Ali</b></td>
+                  <td class="cell-mute">fathima@zephyrlabs.io</td>
+                  <td><span class="tag tag-grey">User</span></td>
+                  <td><span class="tag tag-green js-status">Active</span></td>
+                  <td><span class="cell-actions">
+                    <button class="ui-act" type="button" data-act="block">Block</button>
+                    <button class="ui-act ui-act-danger" type="button" data-act="delete">Delete</button>
+                  </span></td>
+                </tr>
+                <tr data-user>
+                  <td><span class="av av-soft" aria-hidden="true">GV</span></td>
+                  <td><b class="cell-strong">Gowtham V</b></td>
+                  <td class="cell-mute">gowtham@vertexgroup.co</td>
+                  <td><span class="tag tag-grey">User</span></td>
+                  <td><span class="tag tag-green js-status">Active</span></td>
+                  <td><span class="cell-actions">
+                    <button class="ui-act" type="button" data-act="block">Block</button>
+                    <button class="ui-act ui-act-danger" type="button" data-act="delete">Delete</button>
+                  </span></td>
+                </tr>
+                <tr data-user>
+                  <td><span class="av av-soft" aria-hidden="true">IT</span></td>
+                  <td><b class="cell-strong">Ishaan Tiwari</b></td>
+                  <td class="cell-mute">ishaan@brightpixel.in</td>
+                  <td><span class="tag tag-grey">User</span></td>
+                  <td><span class="tag tag-green js-status">Active</span></td>
+                  <td><span class="cell-actions">
+                    <button class="ui-act" type="button" data-act="block">Block</button>
+                    <button class="ui-act ui-act-danger" type="button" data-act="delete">Delete</button>
+                  </span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== MANAGE SERVICES ========== -->
+      <section class="panel" data-panel="services" data-title="Manage Services">
+        <div class="panel-head">
+          <h2>Manage Services</h2>
+          <p>Toggle services live on the website or keep them in draft.</p>
+        </div>
+
+        <div class="svc-grid">
+          <article class="svc-card">
+            <div class="svc-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><path d="M3 12.5h18"/></svg></span>
+              <button class="sw" type="button" role="switch" aria-checked="true" data-act="toggle-status" data-name="Managed IT Services">
+                <span class="sw-track" aria-hidden="true"></span><span class="sw-label">Live</span>
+              </button>
+            </div>
+            <div class="svc-name"><div><b>Managed IT Services</b><small>24/7 monitoring · 41 clients</small></div></div>
+            <div class="svc-foot">
+              <button class="ui-btn" type="button" data-act="edit" data-name="Managed IT Services">Edit</button>
+              <span class="tag tag-green">₹85,000 MRR</span>
+            </div>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8-4 4 4 4"/><path d="m15.5 8 4 4-4 4"/><path d="m13.5 5-3 14"/></svg></span>
+              <button class="sw" type="button" role="switch" aria-checked="true" data-act="toggle-status" data-name="Web Development">
+                <span class="sw-track" aria-hidden="true"></span><span class="sw-label">Live</span>
+              </button>
+            </div>
+            <div class="svc-name"><div><b>Web Development</b><small>Portals &amp; e-commerce · 27 projects</small></div></div>
+            <div class="svc-foot">
+              <button class="ui-btn" type="button" data-act="edit" data-name="Web Development">Edit</button>
+              <span class="tag tag-green">₹1,20,000 MRR</span>
+            </div>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 19 6.3v5.4c0 4.2-2.9 7.9-7 9-4.1-1.1-7-4.8-7-9V6.3L12 3.5z"/><path d="m9.3 12.2 2 2 3.5-3.8"/></svg></span>
+              <button class="sw" type="button" role="switch" aria-checked="true" data-act="toggle-status" data-name="Cyber Security">
+                <span class="sw-track" aria-hidden="true"></span><span class="sw-label">Live</span>
+              </button>
+            </div>
+            <div class="svc-name"><div><b>Cyber Security</b><small>Audits &amp; hardening · 18 clients</small></div></div>
+            <div class="svc-foot">
+              <button class="ui-btn" type="button" data-act="edit" data-name="Cyber Security">Edit</button>
+              <span class="tag tag-green">₹96,000 MRR</span>
+            </div>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 18.5A4.5 4.5 0 0 1 8 9.6a5.5 5.5 0 0 1 10.4 1.6A3.9 3.9 0 0 1 17.8 18.5z"/></svg></span>
+              <button class="sw" type="button" role="switch" aria-checked="true" data-act="toggle-status" data-name="Cloud &amp; Hosting">
+                <span class="sw-track" aria-hidden="true"></span><span class="sw-label">Live</span>
+              </button>
+            </div>
+            <div class="svc-name"><div><b>Cloud &amp; Hosting</b><small>99.9% uptime SLA · 63 servers</small></div></div>
+            <div class="svc-foot">
+              <button class="ui-btn" type="button" data-act="edit" data-name="Cloud &amp; Hosting">Edit</button>
+              <span class="tag tag-green">₹74,000 MRR</span>
+            </div>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4" width="17" height="6.5" rx="1.6"/><rect x="3.5" y="13.5" width="17" height="6.5" rx="1.6"/><path d="M7.5 7.2h.01"/><path d="M7.5 16.7h.01"/></svg></span>
+              <button class="sw is-off" type="button" role="switch" aria-checked="false" data-act="toggle-status" data-name="Backup &amp; Disaster Recovery">
+                <span class="sw-track" aria-hidden="true"></span><span class="sw-label">Draft</span>
+              </button>
+            </div>
+            <div class="svc-name"><div><b>Backup &amp; Disaster Recovery</b><small>Hourly snapshots · launching soon</small></div></div>
+            <div class="svc-foot">
+              <button class="ui-btn" type="button" data-act="edit" data-name="Backup &amp; Disaster Recovery">Edit</button>
+              <span class="tag tag-amber">Draft</span>
+            </div>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="5" rx="1.5"/><rect x="3.5" y="14.5" width="17" height="5" rx="1.5"/><path d="M7 7h.01"/><path d="M7 17h.01"/></svg></span>
+              <button class="sw" type="button" role="switch" aria-checked="true" data-act="toggle-status" data-name="Network Security">
+                <span class="sw-track" aria-hidden="true"></span><span class="sw-label">Live</span>
+              </button>
+            </div>
+            <div class="svc-name"><div><b>Network Security</b><small>Firewall &amp; VPN setups · 34 sites</small></div></div>
+            <div class="svc-foot">
+              <button class="ui-btn" type="button" data-act="edit" data-name="Network Security">Edit</button>
+              <span class="tag tag-green">₹70,000 MRR</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== ENQUIRIES ========== -->
+      <section class="panel" data-panel="enquiries" data-title="Enquiries">
+        <div class="panel-head">
+          <h2>Enquiries</h2>
+          <p>Messages from the contact form, newest first.</p>
+        </div>
+
+        <div class="card">
+          <div class="enq-list">
+            <div class="enq-row">
+              <span class="av" aria-hidden="true">KR</span>
+              <div class="enq-body">
+                <b>Kavya Ramesh</b>
+                <span class="enq-meta">Cloud &amp; Hosting</span>
+                <p>Hi, we need hosted email and daily backups for a 40-user team. Can you share a quote?</p>
+              </div>
+              <div class="enq-actions">
+                <span class="enq-time">12 min ago</span>
+                <button class="ui-btn" type="button" data-act="reply" data-name="Kavya Ramesh">Reply</button>
+                <button class="ui-btn" type="button" data-act="mark-read">Mark read</button>
+              </div>
+            </div>
+
+            <div class="enq-row">
+              <span class="av av-soft" aria-hidden="true">AT</span>
+              <div class="enq-body">
+                <b>Arun Textiles</b>
+                <span class="enq-meta">Managed IT Services</span>
+                <p>Looking for on-site support and asset management across our two Salem units.</p>
+              </div>
+              <div class="enq-actions">
+                <span class="enq-time">1 hour ago</span>
+                <button class="ui-btn" type="button" data-act="reply" data-name="Arun Textiles">Reply</button>
+                <button class="ui-btn" type="button" data-act="mark-read">Mark read</button>
+              </div>
+            </div>
+
+            <div class="enq-row">
+              <span class="av" aria-hidden="true">NI</span>
+              <div class="enq-body">
+                <b>Nila Infotech</b>
+                <span class="enq-meta">Cyber Security</span>
+                <p>We failed a PCI audit — need penetration testing and remediation before December.</p>
+              </div>
+              <div class="enq-actions">
+                <span class="enq-time">3 hours ago</span>
+                <button class="ui-btn" type="button" data-act="reply" data-name="Nila Infotech">Reply</button>
+                <button class="ui-btn" type="button" data-act="mark-read">Mark read</button>
+              </div>
+            </div>
+
+            <div class="enq-row">
+              <span class="av av-soft" aria-hidden="true">MF</span>
+              <div class="enq-body">
+                <b>Miracle Foods</b>
+                <span class="enq-meta">Web Development</span>
+                <p>Need an ordering portal with delivery tracking and UPI payments. Timeline: 6 weeks.</p>
+              </div>
+              <div class="enq-actions">
+                <span class="enq-time">Yesterday</span>
+                <button class="ui-btn" type="button" data-act="reply" data-name="Miracle Foods">Reply</button>
+                <button class="ui-btn" type="button" data-act="mark-read">Mark read</button>
+              </div>
+            </div>
+
+            <div class="enq-row">
+              <span class="av" aria-hidden="true">SK</span>
+              <div class="enq-body">
+                <b>Suresh Kumar</b>
+                <span class="enq-meta">Network Security</span>
+                <p>Our office Wi-Fi keeps dropping and we suspect unauthorized access. Please advise.</p>
+              </div>
+              <div class="enq-actions">
+                <span class="enq-time">2 days ago</span>
+                <button class="ui-btn" type="button" data-act="reply" data-name="Suresh Kumar">Reply</button>
+                <button class="ui-btn" type="button" data-act="mark-read">Mark read</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== REPORTS ========== -->
+      <section class="panel" data-panel="reports" data-title="Reports">
+        <div class="panel-head">
+          <h2>Reports</h2>
+          <p>Performance of stackly.in for the last 30 days.</p>
+        </div>
+
+        <div class="stat-grid">
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><circle cx="12" cy="12" r="2.6"/></svg></span>
+              <span class="stat-delta">+12.4%</span>
+            </div>
+            <p class="stat-val">48,210</p>
+            <p class="stat-lbl">Page Views</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20.5V6.2A2.2 2.2 0 0 1 6.2 4h7.3l6.3 6.3v10.2a2.2 2.2 0 0 1-2.2 2.2H6.2A2.2 2.2 0 0 1 4 20.5z"/><path d="M13.5 4v6.3H20"/></svg></span>
+              <span class="stat-delta">+6.1%</span>
+            </div>
+            <p class="stat-val">1,204</p>
+            <p class="stat-lbl">Leads Generated</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg></span>
+              <span class="stat-delta is-down">-0.4h</span>
+            </div>
+            <p class="stat-val">2.4h</p>
+            <p class="stat-lbl">Avg. Response Time</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="stat-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17.5 9.2 11l3.6 3.6L20 6.5"/><path d="M15.5 6.5H20V11"/></svg></span>
+              <span class="stat-delta">+3.2%</span>
+            </div>
+            <p class="stat-val">4.6%</p>
+            <p class="stat-lbl">Conversion Rate</p>
+          </article>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Key metrics</h3>
+            <button class="btn btn-primary btn-sm" type="button" data-act="download" data-msg="Report downloaded (PDF)">Download report</button>
+          </div>
+
+          <div class="prog-item">
+            <div class="prog-top"><b>Site traffic</b><span>92%</span></div>
+            <div class="prog"><i style="width:92%"></i></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-top"><b>Conversion</b><span>64%</span></div>
+            <div class="prog"><i style="width:64%"></i></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-top"><b>Satisfaction</b><span>96%</span></div>
+            <div class="prog"><i style="width:96%"></i></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-top"><b>Uptime</b><span>99.9%</span></div>
+            <div class="prog"><i style="width:99.9%"></i></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== SETTINGS ========== -->
+      <section class="panel" data-panel="settings" data-title="Settings">
+        <div class="panel-head">
+          <h2>Settings</h2>
+          <p>Site-wide preferences for Stackly.</p>
+        </div>
+
+        <div class="card">
+          <form class="dash-form two" data-act="settings" data-msg="Settings saved">
+            <div class="dash-field">
+              <label class="dash-label" for="st-site">Site name</label>
+              <input class="dash-input" type="text" id="st-site" name="site" value="Stackly">
+            </div>
+            <div class="dash-field">
+              <label class="dash-label" for="st-email">Contact email</label>
+              <input class="dash-input" type="email" id="st-email" name="email" value="info@stackly.in">
+            </div>
+            <div class="dash-field">
+              <label class="dash-label" for="st-phone">Phone</label>
+              <input class="dash-input" type="text" id="st-phone" name="phone" value="+91 428 222 4455">
+            </div>
+            <div class="dash-field">
+              <label class="dash-label" for="st-address">Address</label>
+              <input class="dash-input" type="text" id="st-address" name="address" value="123 Gandhi Road, Salem – 636001">
+            </div>
+
+            <div class="dash-field full">
+              <span class="dash-label">Notifications</span>
+              <div class="toggle-row">
+                <span class="tr-txt"><b>New enquiry alerts</b><small>Email the team the moment a form is submitted.</small></span>
+                <button class="sw" type="button" role="switch" aria-checked="true" data-act="toggle-status" data-name="New enquiry alerts" data-on="On" data-off="Off">
+                  <span class="sw-track" aria-hidden="true"></span><span class="sw-label">On</span>
+                </button>
+              </div>
+              <div class="toggle-row">
+                <span class="tr-txt"><b>Weekly summary</b><small>A Monday digest of traffic, leads and invoices.</small></span>
+                <button class="sw" type="button" role="switch" aria-checked="true" data-act="toggle-status" data-name="Weekly summary" data-on="On" data-off="Off">
+                  <span class="sw-track" aria-hidden="true"></span><span class="sw-label">On</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="dash-field full form-actions">
+              <button class="btn btn-primary btn-sm" type="submit">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/dashboard.js" defer></script>
+</body>
+</html>

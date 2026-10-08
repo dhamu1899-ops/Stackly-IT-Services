@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>404 · Page not found · Stackly</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="page-404" data-page="404">
+
+<a class="page-close" href="index.html" aria-label="Close and go home">&times;</a>
+
+<main class="err-wrap">
+  <span class="err-ring r1" aria-hidden="true"></span>
+  <span class="err-ring r2" aria-hidden="true"></span>
+  <span class="err-ring r3" aria-hidden="true"></span>
+
+  <div class="err-inner">
+    <p class="err-code">404</p>
+    <h1>Page not found</h1>
+    <p class="err-copy">The page you are looking for was moved, removed or never existed. Let's get you back on track.</p>
+
+    <div class="err-actions">
+      <button type="button" class="btn btn-outline" id="err-back">Go Back</button>
+      <a class="btn btn-primary" href="index.html">Back to Home</a>
+    </div>
+
+    <p class="err-login">Looking for your dashboard? <a href="login.html">Sign in here</a></p>
+  </div>
+</main>
+
+<script>
+  (function () {
+    var btn = document.getElementById('err-back');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (history.length > 1) history.back();
+      else location.href = 'index.html';
+    });
+  })();
+</script>
+</body>
+</html>

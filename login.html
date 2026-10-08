@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign in · Stackly</title>
+<meta name="description" content="Sign in to your Stackly account — client dashboard or admin console.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="page-auth" data-page="login">
+
+<a class="page-close" href="index.html" aria-label="Close and go home">&times;</a>
+
+<div class="auth-split">
+
+  <!-- ============ BRAND PANEL ============ -->
+  <aside class="auth-brand">
+    <span class="auth-deco" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+
+    <a class="auth-logo" href="index.html">
+      <span class="logo-chip"><img src="assets/img/logo.svg" alt=""></span>
+      <b>Stackly</b>
+    </a>
+
+    <div class="auth-brand-body">
+      <h2>IT solutions for the next generation</h2>
+      <p class="auth-tag">Manage your services, tickets and invoices from one secure dashboard.</p>
+      <ul class="auth-points">
+        <li>24/7 monitoring &amp; responsive support</li>
+        <li>Secure cloud, backup &amp; disaster recovery</li>
+        <li>Trusted by 1,200+ growing businesses</li>
+      </ul>
+    </div>
+
+    <p class="auth-brand-foot">Stackly IT Services · Salem – 636001 · info@stackly.in</p>
+  </aside>
+
+  <!-- ============ FORM PANEL ============ -->
+  <main class="auth-pane">
+    <a class="auth-mlogo" href="index.html"><img src="assets/img/logo.svg" alt=""><b>Stackly</b></a>
+    <div class="auth-card">
+      <p class="auth-eyebrow">Welcome back</p>
+      <h1>Sign in to Stackly</h1>
+      <p class="auth-sub">Pick your role, then enter your credentials.</p>
+
+      <div class="auth-seg" role="group" aria-label="Account type">
+        <button type="button" class="is-active" data-role="user" aria-pressed="true">User</button>
+        <button type="button" data-role="admin" aria-pressed="false">Admin</button>
+      </div>
+      <input type="hidden" id="auth-role" value="user">
+
+      <form id="login-form" novalidate>
+        <div class="auth-field">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" name="email" autocomplete="email" placeholder="you@example.com">
+          <span class="field-err" role="alert"></span>
+        </div>
+
+        <div class="auth-field">
+          <label for="login-password">Password</label>
+          <div class="auth-pw">
+            <input type="password" id="login-password" name="password" autocomplete="current-password" placeholder="Enter your password">
+            <button type="button" class="auth-pw-toggle" data-toggle-pw="login-password" aria-pressed="false" aria-label="Show password">Show</button>
+          </div>
+          <span class="field-err" role="alert"></span>
+        </div>
+
+        <div class="auth-row">
+          <label class="auth-check" for="login-remember">
+            <input type="checkbox" id="login-remember" name="remember"> Remember me
+          </label>
+          <a class="auth-link" href="404.html">Forgot password?</a>
+        </div>
+
+        <div class="auth-actions">
+          <button type="submit" class="btn btn-primary auth-submit">Sign In</button>
+          <a class="btn btn-outline auth-submit" href="contact.html">Get A Quote</a>
+        </div>
+      </form>
+
+      <div class="auth-hint">
+        <b>Demo credentials</b><br>
+        Admin → <code>admin@stackly.in</code> / <code>admin123</code><br>
+        User → <code>user@stackly.in</code> / <code>user123</code>
+      </div>
+
+      <p class="auth-alt">Don't have an account? <a href="signup.html">Create one</a></p>
+      <a class="auth-home" href="index.html">Back to home</a>
+    </div>
+  </main>
+
+</div>
+
+<script src="js/auth.js" defer></script>
+</body>
+</html>
