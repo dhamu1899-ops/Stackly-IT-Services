@@ -273,6 +273,7 @@
   display:block;margin-bottom:8px;
 }
 .auth-role-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.auth-role-cards.is-single{grid-template-columns:minmax(0,1fr)}
 .role-card{
   position:relative;cursor:pointer;
   display:flex;flex-direction:column;gap:4px;
@@ -633,6 +634,8 @@
   transition:var(--transition);white-space:nowrap;
 }
 .ui-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.ui-btn[disabled]{opacity:.7;cursor:default;pointer-events:none}
+.ui-btn.primary[disabled]{background:var(--accent);color:#fff;opacity:.75}
 .ui-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .ui-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
 .ui-btn.primary:hover{background:var(--accent-2);border-color:var(--accent-2);color:#fff}
@@ -776,6 +779,7 @@ select.dash-input{appearance:none;background-image:linear-gradient(45deg,transpa
 .svc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .svc-name{display:flex;align-items:center;gap:12px;min-width:0}
 .svc-name b{font-size:16.5px;color:var(--heading);font-family:var(--font-h);display:block}
+.svc-name b.is-editing{outline:2px dashed var(--accent);outline-offset:4px;border-radius:5px;color:var(--accent);cursor:text;min-width:60px}
 .svc-name small{font-size:13px;color:var(--muted)}
 .svc-meta{
   display:flex;gap:18px;flex-wrap:wrap;

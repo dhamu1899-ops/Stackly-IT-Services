@@ -9,11 +9,24 @@
   var USERS_KEY = 'stackly_users';
   var REMEMBER_KEY = 'stackly_remember_email';
 
-  /* Seeded demo accounts (never stored, always available) */
+  /* Seeded demo accounts (never stored, always available).
+     Passwords are salted SHA-256 hashes — no readable credential
+     exists anywhere in the source or in localStorage. */
   var DEMO_ACCOUNTS = [
-    { name: 'Arjun Stackly', email: 'admin@stackly.in', password: 'admin123', role: 'admin' },
-    { name: 'Priya User', email: 'user@stackly.in', password: 'user123', role: 'user' }
+    { name: 'Arjun Stackly', email: 'admin@stackly.in', salt: 'e3e8570933297b56', pwHash: '67f6c9ef66d4080e539404c3afac037421dd468be9c82dfc49180db591f1ae7a', role: 'admin' },
+    { name: 'Priya User', email: 'user@stackly.in', salt: '097ec9fcfa206c51', pwHash: '6b164c7d6ea76a6ec141c2d8d0e94054b24180e59beae99c4c5feb0951dd7ef1', role: 'user' }
   ];
+
+  /* Constant-time-ish password check against a salted hash */
+  function passwordMatches(account, pass) {
+    if (!account || !window.StacklySec) return false;
+    if (typeof account.pwHash !== 'string' || !account.salt) return false;
+    var got = window.StacklySec.hashPassword(pass, account.salt);
+    if (got.length !== account.pwHash.length) return false;
+    var diff = 0;
+    for (var i = 0; i < got.length; i++) diff |= got.charCodeAt(i) ^ account.pwHash.charCodeAt(i);
+    return diff === 0;
+  }
 
   function readJSON(key, fallback) {
     try {
@@ -27,26 +40,28 @@
   }
 
   var Stackly = {
-    /* ---- session ---- */
+    /* ---- session (signed + role-verified, see js/security.js) ---- */
     getSession: function () {
-      var s = readJSON(SESSION_KEY, null);
-      if (!s || typeof s !== 'object' || !s.email) return null;
-      return s;
+      if (!window.StacklySec) return null;
+      return window.StacklySec.readSession();
     },
     setSession: function (session) {
-      try { localStorage.setItem(SESSION_KEY, JSON.stringify(session)); } catch (e) {}
-      return session;
+      if (!window.StacklySec) return session;
+      return window.StacklySec.writeSession(session);
     },
     clearSession: function () {
-      try { localStorage.removeItem(SESSION_KEY); } catch (e) {}
+      if (window.StacklySec) window.StacklySec.clearSession();
+      else { try { localStorage.removeItem(SESSION_KEY); } catch (e) {} }
     },
 
-    /* ---- users ---- */
+    /* ---- users (salted hashes + integrity signature) ---- */
     getUsers: function () {
+      if (window.StacklySec) return window.StacklySec.readUsers();
       var users = readJSON(USERS_KEY, []);
       return Array.isArray(users) ? users : [];
     },
     saveUsers: function (users) {
+      if (window.StacklySec) return window.StacklySec.writeUsers(users);
       try { localStorage.setItem(USERS_KEY, JSON.stringify(users)); } catch (e) {}
     },
 
@@ -237,8 +252,12 @@
       if (!Stackly.isValidEmail(mail)) return fail(email, 'Enter a valid email address.');
       if (!pass) return fail(password, 'Password is required.');
 
+      if (!window.StacklySec) {
+        return fail(password, 'Security module unavailable — reload the page and try again.');
+      }
+
       var account = findAccount(mail);
-      if (!account || account.password !== pass) {
+      if (!account || !passwordMatches(account, pass)) {
         return fail(email, 'Incorrect email or password. Try the demo credentials below.');
       }
       if (account.role !== role) {
@@ -278,8 +297,10 @@
       var mail = email.value.trim();
       var pass = password.value;
       var pass2 = confirm.value;
-      var roleInput = form.querySelector('input[name="su-role"]:checked');
-      var role = roleInput ? roleInput.value : 'user';
+      /* ITS-001: public sign-up can only ever create a standard user.
+         Administrative accounts are provisioned separately — the role is
+         never read from the form. */
+      var role = 'user';
 
       if (fullName.length < 2) return fail(name, 'Please enter your full name (2 characters or more).');
       if (!Stackly.isValidEmail(mail)) return fail(email, 'Enter a valid email address.');
@@ -288,15 +309,21 @@
       if (findAccount(mail)) {
         return fail(email, 'An account with this email already exists');
       }
+      if (!window.StacklySec) {
+        return fail(password, 'Security module unavailable — reload the page and try again.');
+      }
 
+      /* ITS-002: store a salted hash, never the readable password */
       var users = Stackly.getUsers();
-      users.push({
+      var salt = window.StacklySec.randomSalt();
+      users.push(window.StacklySec.makeUser({
         name: fullName,
         email: mail,
-        password: pass,
+        salt: salt,
+        pwHash: window.StacklySec.hashPassword(pass, salt),
         role: role,
         created: new Date().toISOString()
-      });
+      }));
       Stackly.saveUsers(users);
 
       rememberEmail('');

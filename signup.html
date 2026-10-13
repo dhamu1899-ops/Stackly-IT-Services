@@ -57,7 +57,7 @@
 
         <fieldset class="auth-fieldset">
           <legend class="auth-role-label">I am signing up as</legend>
-          <div class="auth-role-cards">
+          <div class="auth-role-cards is-single">
             <label class="role-card">
               <input type="radio" name="su-role" value="user" checked>
               <span class="role-ico" aria-hidden="true">
@@ -65,15 +65,6 @@
               </span>
               <b>User</b>
               <small>Client dashboard for your services &amp; invoices</small>
-            </label>
-
-            <label class="role-card">
-              <input type="radio" name="su-role" value="admin">
-              <span class="role-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.4-3.1 8.3-7.5 9.5-4.4-1.2-7.5-5.1-7.5-9.5V6L12 3z"/><path d="M9.2 12.2l2 2 3.6-3.8"/></svg>
-              </span>
-              <b>Admin</b>
-              <small>Full console: users, services &amp; reports</small>
             </label>
           </div>
         </fieldset>
@@ -110,6 +101,7 @@
 
 </div>
 
+<script src="js/security.js" defer></script>
 <script src="js/auth.js" defer></script>
 </body>
 </html>

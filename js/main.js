@@ -203,12 +203,13 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var ok = true;
+      var badEmail = false;
       $$('[required], input[type="email"]', form).forEach(function (input) {
         var field = input.closest(".field");
         var valid = input.value.trim() !== "" &&
           (input.type !== "email" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()));
         if (field) field.classList.toggle("invalid", !valid);
-        if (!valid) ok = false;
+        if (!valid) { ok = false; if (input.type === "email") badEmail = true; }
       });
 
       var msg = findMsg();
@@ -220,7 +221,9 @@
         }
         form.reset();
       } else if (msg && msg.classList.contains("form-msg")) {
-        msg.textContent = "Please enter a valid email address.";
+        msg.textContent = badEmail
+          ? "Please enter a valid email address."
+          : "Please fill in all the required fields.";
         msg.classList.add("error");
         msg.style.display = "block";
       }
@@ -302,7 +305,11 @@
 
   /* ---------- 13. Signed-in state: Login becomes the user name ---------- */
   try {
-    var sess = JSON.parse(localStorage.getItem("stackly_session") || "null");
+    /* verified session (signed record) — a hand-edited localStorage
+       session is discarded instead of trusted */
+    var sess = window.StacklySec
+      ? window.StacklySec.readSession()
+      : JSON.parse(localStorage.getItem("stackly_session") || "null");
     if (sess && sess.name) {
       var target = sess.role === "admin" ? "dashboard-admin.html" : "dashboard-user.html";
       var label = String(sess.name).trim().split(/\s+/)[0];
